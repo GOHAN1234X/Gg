@@ -1,21 +1,24 @@
 {
-  "name": "gs",
+  "name": "gg-key-server",
   "version": "1.0.0",
   "main": "s.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node s.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GOHAN1234X/Gg.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "",
-  "dependencies": {
-    "crypto": "^1.0.1",
-    "express": "^4.21.2",
-    "fs": "^0.0.1-security",
-    "path": "^0.12.7"
+  "bugs": {
+    "url": "https://github.com/GOHAN1234X/Gg/issues"
   },
-  "devDependencies": {
-    "nodemon": "^3.1.9"
-  }
+  "homepage": "https://github.com/GOHAN1234X/Gg#readme",
+  "description": ""
 }
