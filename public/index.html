@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Panel - Key Generator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    #result {
+      margin-top: 20px;
+      padding: 10px;
+      border: 1px solid #ddd;
+      background-color: #f9f9f9;
+      width: fit-content;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Key Generator Admin Panel</h1>
+  <button id="generateKeyBtn">Generate Key</button>
+  <div id="result"></div>
+
+  <script>
+    document.getElementById('generateKeyBtn').addEventListener('click', () => {
+      fetch('/api/generate-key', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
+      .then(response => response.json())
+      .then(data => {
+        const resultDiv = document.getElementById('result');
+        resultDiv.innerHTML = `
+          <p><strong>Key:</strong> ${data.key}</p>
+          <p><strong>Expires:</strong> ${new Date(data.expiry).toLocaleString()}</p>
+        `;
+      })
+      .catch(error => {
+        console.error('Error generating key:', error);
+        document.getElementById('result').innerText = 'Error generating key.';
+      });
+    });
+  </script>
+</body>
+</html>
